@@ -1,0 +1,11 @@
+import grails.converters.*
+class OutboxController {
+    def outie = {
+      def monitor = params.id?.toUpperCase() ?: "NO MONITOR"
+      def message = Monitor.list()
+      if(!message){
+        airport = new Monitor(iata:iat, name:"Not found")
+      }
+      render monitor as JSON
+    }
+}
